@@ -2,14 +2,14 @@ var formulario = document.querySelector("#form")
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault();//corregir el metodo 
   
   var n = formulario.elements[0]
-  var e = formulario.elements[1]
+  var eInput = formulario.elements[1]
   var na = formulario.elements[2]
 
   var nombre = n.value
-  var edad = e.value
+  var edad = eInput.value
 
   var i = na.selectedIndex
   var nacionalidad = na.options[i].value
@@ -55,19 +55,11 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 var lista = document.getElementById("lista-de-invitados")
 
 var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+elementoLista.classList.add("elemento-lista")//corregimos de added a add
 lista.appendChild(elementoLista)
 
-var spanNombre = document.createElement("span")
-var inputNombre = document.createElement("input")
-var espacio = document.createElement("br")
-spanNombre.textContent = "Nombre: "
-inputNombre.value = nombre 
-elementoLista.appendChild(spanNombre)
-elementoLista.appendChild(inputNombre)
-elementoLista.appendChild(espacio)
 
-function crearElemento(descripcion, valor) {
+function crearElemento(descripcion, valor) { //se eliminaron las lineas repetidas
 var spanNombre = document.createElement("span")
 var inputNombre = document.createElement("input")
 var espacio = document.createElement("br")
